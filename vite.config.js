@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/",
+  base: "/Platzi_SPA_JS_vanilla/",
 });
