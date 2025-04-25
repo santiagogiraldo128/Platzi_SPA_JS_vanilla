@@ -1,19 +1,25 @@
 language: node_js
+node_js:
+  - "22"
 cache:
   directories:
     - ~/.npm
-node_js:
-  - "22"
+git:
+  depth: 3
+
 script:
-    - npm run build
+  - npm install
+  - npm run build
+  - rm -rf docs
+  - mkdir docs
+  - cp -r dist/* docs/
+
 deploy:
   provider: pages
-  edge: true
   skip-cleanup: true
-  keep-history: true
   github-token: $GITHUB_TOKEN
-  local-dir: dist/
+  keep-history: true
+  local-dir: docs
   target-branch: main
-  commit_message: "Deploy Release"
   on:
     branch: main
