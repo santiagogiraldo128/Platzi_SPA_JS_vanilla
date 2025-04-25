@@ -14,7 +14,7 @@
                 </a>
             </div>
         </div>
-    `,i="https://rickandmortyapi.com/api/character",d=async r=>{const e=r?`${i}/${r}`:i;try{return await(await fetch(e)).json()}catch(a){return console.error("Error fetching data:",a),null}},f=async()=>`
+    `,o="https://rickandmortyapi.com/api/character",d=async r=>{const e=r?`${o}/${r}`:o;try{return await(await fetch(e)).json()}catch(a){return console.error("Error fetching data:",a),null}},f=async()=>`
     <div class="characters">
       ${(await d()).results.map(a=>`
           <article class="character-item">
@@ -43,6 +43,6 @@
         </div>  
     `},v=()=>`
         <div class="error404">
-            <h2>Error 404</h2>
+            <h2>Error 404, no se obtuvo la pagina</h2>
         </div>
-    `,p=r=>r.length<=3?r==="/"?r:"/:id":`/${r}`,o={"/":f,"/:id":m,"/contact":"Contact"},h=async()=>{const r=document.getElementById("header"),e=document.getElementById("content");r.innerHTML=await u();let a=l(),s=await p(a),t=o[s]?o[s]:v;e.innerHTML=await t()};window.addEventListener("load",h);window.addEventListener("hashchange",h);
+    `,p=r=>r.length<=3?r==="/"?r:"/:id":`/${r}`,i={"/":f,"/:id":m,"/contact":"Contact"},h=async()=>{const r=document.getElementById("header"),e=document.getElementById("content");r.innerHTML=await u();let a=l(),s=await p(a),t=i[s]?i[s]:v;e.innerHTML=await t()};window.addEventListener("load",h);window.addEventListener("hashchange",h);
